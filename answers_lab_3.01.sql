@@ -57,3 +57,16 @@ VALUES
 select * from rental
 where customer_id = 130;
 -- OK
+
+
+-- 
+ the following updates are possible to sakila database:
+ /* 
+ 1. We store customer_id in both payment and rental tables. 
+ It is possible to remove it from payment to decrease redundancy.
+ 2. Client table contains information about store_id. 
+ We could remove this info and use the same information from rental table if necessary.
+ 3. The relation of city and country is 1:1. We could probably join the tables city and country.
+ 4. Payment table contain staff_id. The same staff_id presents in the rental table. 
+ As long as we have one staff per store we can omit this info in the payment table.
+	We need to keep it if we hire floor consultans without access to the cash register.
